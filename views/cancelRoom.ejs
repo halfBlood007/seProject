@@ -1,0 +1,48 @@
+<%- include("partials/custHeader") -%>
+<div class="container">
+
+  <h2>Cancellation Form</h2>
+  <form type="post" action="/cancelRoom">
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Name</label>
+      <input type="text" class="inputs" id="exampleInputPassword1" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="inputs" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div id="newElementId">Add the room numbers</div>
+    <br>
+    <div id="dynamicCheck">
+      <input class="btn btn-primary " type="button" value="Add Room No" onclick="createNewElement();" />
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="oo">Reason</label><br>
+      <textarea name="text" rows="6" cols="80" placeholder="please tell the reason for cancellation" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+</div>
+
+<script type="text/JavaScript">
+  function createNewElement() {
+    // First create a DIV element.
+	var txtNewInputBox = document.createElement('div');
+
+    // Then add the content (a new input box) of the element.
+	txtNewInputBox.innerHTML = "<input type='text' id='newInputBox' class='newCancel'>";
+
+    // Finally put it where it is supposed to appear.
+	document.getElementById("newElementId").appendChild(txtNewInputBox);
+}
+</script>
+<%- include("partials/custFooterLow") -%>
